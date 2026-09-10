@@ -1,0 +1,14 @@
+apiVersion: extensions.agents.x-k8s.io/v1beta1
+kind: SandboxTemplate
+metadata:
+  name: sandbox-template
+  namespace: default
+spec:
+  podTemplate:
+    spec:
+      containers:
+      - name: python-sandbox
+        image: sandbox-runtime:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8888
