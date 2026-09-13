@@ -12,6 +12,11 @@ if [[ $cmd = "start" ]]; then
     claim_name=$(cat $name.claim.txt)
     sandbox_id=$(cat $name.id.txt)
 
+    bridge_ip=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')
+
+    echo "Connect via HTTP at the following"
+    echo "http://$bridge_ip:30111/devb/default/$sandbox_id/8888/"
+
     # start an ssh connection
     kubectl exec -it "$sandbox_id" -- /bin/bash
 
