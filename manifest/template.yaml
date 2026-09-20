@@ -6,6 +6,7 @@ metadata:
 spec:
   podTemplate:
     spec:
+      runtimeClassName: gvisor
       containers:
       - name: python-sandbox
         image: sandbox-runtime:latest

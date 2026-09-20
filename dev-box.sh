@@ -14,6 +14,10 @@ if [[ $cmd = "start" ]]; then
 
     bridge_ip=$(kubectl get nodes -o jsonpath='{.items[0].status.addresses[?(@.type=="InternalIP")].address}')
 
+    echo "Configuring..."
+
+    # configure sandbox
+
     echo "Connect via HTTP at the following"
     echo "http://$bridge_ip:30111/devb/default/$sandbox_id/8888/"
 

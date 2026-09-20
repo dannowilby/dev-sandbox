@@ -43,8 +43,6 @@ def create_sandbox(name):
         namespace="default",
     )
 
-    print(sandbox.sandbox_id)
-
     claim_file_name = name + ".claim.txt"
     with open(claim_file_name, 'w') as fd:
         fd.write(sandbox.claim_name)
